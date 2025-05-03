@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kalkulator Money Management</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      color: #00ffcc;
+      font-size: 2rem;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      background: #1a1a1a;
+      color: #f1f1f1;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #333;
+      text-align: center;
+    }
+    th {
+      background-color: #00ffcc;
+      color: #000;
+    }
+    tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+    tr:nth-child(odd) {
+      background-color: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kalkulator Money Management</h1>
+  <label for="modal">Modal Awal ($):</label>
+  <input type="number" id="modal" value="100" step="0.01" />
+  <label for="profit">Target Profit per Hari (%):</label>
+  <input type="number" id="profit" value="20" step="0.01" />
+  <label for="hari">Jumlah Hari:</label>
+  <input type="number" id="hari" value="10" />
+  <button onclick="hitung()">Hitung</button>
+
+  <table id="hasil" style="display:none">
+    <thead>
+      <tr>
+        <th>Hari</th>
+        <th>Modal Awal ($)</th>
+        <th>Profit (%)</th>
+        <th>Profit ($)</th>
+        <th>Modal Akhir ($)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    function hitung() {
+      const modalAwal = parseFloat(document.getElementById('modal').value);
+      const profitPersen = parseFloat(document.getElementById('profit').value) / 100;
+      const totalHari = parseInt(document.getElementById('hari').value);
+
+      let tbody = document.querySelector('#hasil tbody');
+      tbody.innerHTML = '';
+      let modal = modalAwal;
+
+      for (let i = 1; i <= totalHari; i++) {
+        let profit = modal * profitPersen;
+        let modalAkhir = modal + profit;
+
+        tbody.innerHTML += `
+          <tr>
+            <td>${i}</td>
+            <td>${modal.toFixed(2)}</td>
+            <td>${(profitPersen * 100).toFixed(2)}%</td>
+            <td>${profit.toFixed(2)}</td>
+            <td>${modalAkhir.toFixed(2)}</td>
+          </tr>
+        `;
+
+        modal = modalAkhir;
+      }
+
+      document.getElementById('hasil').style.display = 'table';
+    }
+  </script>
+</body>
+</html>
