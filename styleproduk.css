@@ -96,7 +96,26 @@ body {
 .animate-pop {
   animation: pop 0.6s ease forwards;
 }
+.floating-back-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* Ubah dari left ke right */
+  background: #ff0080;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 12px #ff0080, 0 0 20px #00f2ea;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
 
+.floating-back-btn:hover {
+  background: #00f2ea;
+  box-shadow: 0 0 12px #00f2ea, 0 0 20px #ff0080;
+  color: black;
+}
 .animate-pulse {
   animation: pulse 2s infinite;
 }
