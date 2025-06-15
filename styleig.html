@@ -1,0 +1,128 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #000000, #0f0f0f);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 2.2em;
+  margin-bottom: 0;
+}
+
+h2 {
+  color: #ff2d75;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.list-section .card {
+  background: #181818;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  animation: slideIn 1s ease forwards;
+  opacity: 0;
+}
+
+.list-section .card:nth-child(even) {
+  background: #222222;
+}
+
+.list-section .card.highlight {
+  background: #2c003e;
+  color: #ff80df;
+  font-weight: 600;
+}
+
+.card em, .card strong {
+  color: #ff69b4;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.note {
+  background: #111;
+  color: #ffeb3b;
+  padding: 10px;
+  margin-top: 25px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.payment {
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+.payment a {
+  color: #00eaff;
+  text-decoration: none;
+}
+
+.buy-button {
+  display: block;
+  margin: 25px auto 80px;
+  background: linear-gradient(45deg, #ff0066, #6600ff);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: glow 2s infinite ease-in-out;
+}
+
+.buy-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+.floating-back {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #444;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 0 10px #000;
+  transition: background 0.3s;
+}
+
+.floating-back:hover {
+  background: #888;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #ff00ff; }
+  50% { box-shadow: 0 0 20px #ff00ff; }
+  100% { box-shadow: 0 0 5px #ff00ff; }
+}
