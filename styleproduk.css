@@ -1,0 +1,102 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #000000, #1c1c1c);
+  color: white;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 40px 0 20px;
+  text-align: center;
+  color: #00f2ea;
+  text-shadow: 0 0 10px #00f2ea;
+}
+
+.price-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.price-item {
+  background: linear-gradient(to right, #101010, #202020);
+  border: 1px solid #00f2ea;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 0 10px #00f2ea44;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.price-item p {
+  margin: 0;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+}
+
+.buy-btn {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #00f2ea;
+  color: #000;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px #00f2ea, 0 0 15px #ff0080;
+}
+
+.buy-btn:hover {
+  background: #ff0080;
+  color: white;
+  box-shadow: 0 0 12px #ff0080, 0 0 20px #00f2ea;
+}
+
+.note {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* === ANIMASI === */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 8px #00f2ea; }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px #ff0080; }
+  100% { transform: scale(1); box-shadow: 0 0 8px #00f2ea; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-pop {
+  animation: pop 0.6s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
